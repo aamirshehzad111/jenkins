@@ -8,7 +8,7 @@ node {
 
   
   sh "env | grep BUILD_NUMBER"
-  sh "sed -i 's/Hello! commits/echo "current build number: ${currentBuild.number}"/g' file://Dockerfile"
+  sh "sed -i 's/Hello! commits/echo ${currentBuild.number}/g' file://Dockerfile"
   
   stage 'Docker build'
   docker.build('jenkins-project')
