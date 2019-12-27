@@ -1,14 +1,14 @@
 node {
 
   //def last_commit= sh(script: "git rev-parse --short HEAD", returnStdout: true).trim()
-  def a= sh "env | grep BUILD_NUMBER"
+  
   stage 'Checkout'
   git 'https://github.com/aamirshehzad111/jenkins.git'
     
 
   
-  
-  sh "sed -i 's/Hello! commits/${a}/g' file://Dockerfile"
+  sh "env | grep BUILD_NUMBER"
+  sh "sed -i 's/Hello! commits/echo "current build number: ${currentBuild.number}"/g' file://Dockerfile"
   
   stage 'Docker build'
   docker.build('jenkins-project')
