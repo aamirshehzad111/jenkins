@@ -18,3 +18,4 @@ node {
       taskDefImage = docker.image('jenkins-project').push("v1")
      
   }
+}
