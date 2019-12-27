@@ -8,7 +8,7 @@ node {
 
   
   
-  sh "sed -i 's/Hello! commits/${a}/g' https://github.com/aamirshehzad111/jenkins/blob/master/Dockerfile"
+  sh "sed -i 's/Hello! commits/${a}/g' file://Dockerfile"
   
   stage 'Docker build'
   docker.build('jenkins-project')
